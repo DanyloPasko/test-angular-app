@@ -1,0 +1,31 @@
+<button
+  class="Take-profile-button shadow"
+  (click)="fetchRandomUser()"
+>TAKE PROFILE </button>
+
+<section
+  class="Card shadow"
+  *ngIf="userData"
+>
+  <h2>{{ userData.name.first }} {{ userData.name.last }}</h2>
+  <img
+    class="Card__image"
+    [src]="userData.picture.large"
+    alt="User"
+  >
+  <section>
+    <p>{{ userData.gender }}</p>
+    <p>{{ userData.location.city }}, {{ userData.location.country }}</p>
+    <p>{{ userData.email }}</p>
+    <section class="Card__weather d-flex">
+      <h4>Weather:</h4>
+      <p>{{ getWeatherDescription(weatherData.current_weather.weathercode) }}</p>
+      <p>Temperature: {{ weatherData.current_weather.temperature }}°C</p>
+    </section>
+
+  </section>
+  <button
+    class="Save-button"
+    (click)="saveProfile()"
+  >Save</button>
+</section>

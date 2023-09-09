@@ -1,0 +1,60 @@
+.Take-profile-button {
+  display: flex;
+  margin: 50px auto;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 80px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+
+  &:hover {
+    color: red;
+  }
+}
+
+.Card {
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+  flex-direction: column;
+  width: max-content;
+  min-width: 300px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+
+  &__image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  &__weather {
+    flex-direction: column;
+  }
+
+  &__info {
+    margin: 10px 0 10px 0;
+  }
+}
+
+.Save-button {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  color: white;;
+  border: none;
+  border-radius: 10px;
+
+  &:hover {
+    color: greenyellow;
+  }
+}
