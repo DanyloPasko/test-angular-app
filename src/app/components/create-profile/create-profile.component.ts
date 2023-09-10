@@ -16,9 +16,9 @@ export class CreateProfileComponent {
 
   constructor(
     private http: HttpClient,
-     private userService: UserService,
-     private weatherService: WeatherService // Внедрите сервис
-     ) {}
+    private userService: UserService,
+    private weatherService: WeatherService // Внедрите сервис
+  ) { }
 
   fetchRandomUser() {
     this.http.get('https://randomuser.me/api/').subscribe((data: any) => {
@@ -31,6 +31,7 @@ export class CreateProfileComponent {
       this.http.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m`)
         .subscribe((weatherData: any) => {
           this.weatherData = weatherData;
+
         });
     });
   }
@@ -42,7 +43,7 @@ export class CreateProfileComponent {
   saveProfile() {
     // Вызывайте метод сохранения пользователя только при нажатии кнопки "Save"
     if (this.userData) {
-      this.userService.saveUser(this.userData);
+      this.userService.saveUser(this.userData, this.weatherData);
     }
   }
 }

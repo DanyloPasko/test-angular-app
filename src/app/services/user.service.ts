@@ -18,9 +18,10 @@ export class UserService {
     }
   }
 
-  saveUser(user: any) {
+  saveUser(user: any, weatherData: any) {
     // Добавьте нового пользователя в массив сохраненных пользователей
-    this.savedUsers.push(user);
+    const userWithWeather = { ...user, temperature: weatherData.current_weather.temperature, weatherCode: weatherData.current_weather.weathercode };
+    this.savedUsers.push(userWithWeather);
 
     // Сохраните обновленный список пользователей в локальном хранилище
     localStorage.setItem('savedUsers', JSON.stringify(this.savedUsers));
