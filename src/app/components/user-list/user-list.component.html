@@ -13,7 +13,7 @@
           <p>{{ user.email }}</p>
           <section class="Card__weather d-flex">
             <h4>Weather:</h4>
-            <p>{{ getWeatherDescription(user.weatherCode) }}</p>
+            <p><img class="Card__weather--icon" [src]="getWeatherDescription(user.weatherCode).icon" alt="Weather Icon">{{ getWeatherDescription(user.weatherCode).description }}</p>
             <p>Temperature: {{ user.temperature }}°C</p>
           </section>
         </section>

@@ -35,7 +35,7 @@ export class UserListComponent implements OnInit {
 
 
 
-  getWeatherDescription(weatherCode: number): string {
+  getWeatherDescription(weatherCode: number): { description: string, icon: string } {
     return this.weatherService.getWeatherDescription(weatherCode);
   }
 }

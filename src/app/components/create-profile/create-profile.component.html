@@ -19,7 +19,7 @@
     <p>{{ userData.email }}</p>
     <section class="Card__weather d-flex">
       <h4>Weather:</h4>
-      <p>{{ getWeatherDescription(weatherData.current_weather.weathercode) }}</p>
+      <p><img class="Card__weather--icon" [src]="getWeatherDescription(weatherData.current_weather.weathercode).icon" alt="Weather Icon">{{ getWeatherDescription(weatherData.current_weather.weathercode).description }}</p>
       <p>Temperature: {{ weatherData.current_weather.temperature }}°C</p>
     </section>
 

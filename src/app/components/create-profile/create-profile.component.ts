@@ -36,7 +36,7 @@ export class CreateProfileComponent {
       });
     }
 
-  getWeatherDescription(weatherCode: number): string {
+  getWeatherDescription(weatherCode: number): { description: string, icon: string } {
     return this.weatherService.getWeatherDescription(weatherCode);
   }
 

@@ -35,6 +35,12 @@
 
   &__weather {
     flex-direction: column;
+
+    &--icon {
+      height: 20px;
+      width: 20px;
+      margin-bottom: 4px;
+    }
   }
 
   &__info {
