@@ -1,4 +1,3 @@
-// user-list.component.ts
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { WeatherService } from '../../services/weather.service';
@@ -28,9 +27,8 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(user: any) {
-    // Удалите пользователя из массива и из сервиса
     this.userService.deleteUser(user);
-    this.updateUserList(); // Обновите список после удаления
+    this.updateUserList();
   }
 
 

@@ -1,4 +1,3 @@
-// create-profile.component.ts
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
@@ -10,14 +9,14 @@ import { WeatherService } from '../../services/weather.service';
   styleUrls: ['./create-profile.component.scss']
 })
 export class CreateProfileComponent {
-  userData: any; // Для хранения данных пользователя
-  weatherData: any; // Для хранения данных о погоде
+  userData: any;
+  weatherData: any;
 
 
   constructor(
     private http: HttpClient,
      private userService: UserService,
-     private weatherService: WeatherService // Внедрите сервис
+     private weatherService: WeatherService
      ) {}
 
      fetchRandomUser() {
@@ -27,7 +26,6 @@ export class CreateProfileComponent {
         const latitude = this.userData.location.coordinates.latitude;
         const longitude = this.userData.location.coordinates.longitude;
 
-        // Запрос к API погоды
         this.http.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m`)
           .subscribe((weatherData: any) => {
             this.weatherData = weatherData;
@@ -41,7 +39,6 @@ export class CreateProfileComponent {
   }
 
   saveProfile() {
-    // Вызывайте метод сохранения пользователя только при нажатии кнопки "Save"
     if (this.userData) {
       this.userService.saveUser(this.userData, this.weatherData);
     }

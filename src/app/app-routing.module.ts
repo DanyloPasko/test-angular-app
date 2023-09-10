@@ -4,10 +4,8 @@ import { CreateProfileComponent } from './components/create-profile/create-profi
 import { UserListComponent } from './components/user-list/user-list.component';
 
 const routes: Routes = [
-  // Другие маршруты
   { path: 'create-profile', component: CreateProfileComponent },
   { path: 'user-list', component: UserListComponent },
-  // Другие маршруты
 ];
 
 @NgModule({

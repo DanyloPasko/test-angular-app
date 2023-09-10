@@ -1,4 +1,3 @@
-// user.service.ts
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,10 +7,9 @@ export class UserService {
   setUsers(users: any[]) {
     throw new Error('Method not implemented.');
   }
-  private savedUsers: any[] = []; // Массив для хранения сохраненных пользователей
+  private savedUsers: any[] = [];
 
   constructor() {
-    // При инициализации сервиса, попробуйте загрузить сохраненные пользователи из локального хранилища
     const savedUsersJSON = localStorage.getItem('savedUsers');
     if (savedUsersJSON) {
       this.savedUsers = JSON.parse(savedUsersJSON);
@@ -19,31 +17,24 @@ export class UserService {
   }
 
   saveUser(user: any, weatherData: any) {
-    // Добавьте нового пользователя в массив сохраненных пользователей
     const userWithWeather = { ...user, temperature: weatherData.current_weather.temperature, weatherCode: weatherData.current_weather.weathercode };
     this.savedUsers.push(userWithWeather);
 
-    // Сохраните обновленный список пользователей в локальном хранилище
     localStorage.setItem('savedUsers', JSON.stringify(this.savedUsers));
   }
 
   getUsers() {
-    // Верните массив сохраненных пользователей
     return this.savedUsers;
   }
 
   deleteUser(user: any) {
-    // Получите текущий список пользователей из локального хранилища
     const users = this.getUsers();
 
-    // Найдите индекс выбранного пользователя в массиве
     const index = users.indexOf(user);
 
-    // Удалите пользователя из массива по индексу
     if (index > -1) {
       users.splice(index, 1);
 
-      // Сохраните обновленный список пользователей в локальном хранилище
       localStorage.setItem('savedUsers', JSON.stringify(users));
     }
   }
