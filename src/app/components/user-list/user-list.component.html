@@ -1,23 +1,26 @@
 <!-- user-list.component.html -->
-<h2>Saved Users</h2>
-<ul class="Saved-users-ul d-flex">
-  <li *ngFor="let user of users">
-    <section class="Card shadow" *ngIf="user">
-      <h2>{{ user.name.first }} {{ user.name.last }}</h2>
-      <img class="Card__image" [src]="user.picture.large" alt="User">
-      <section class="Card__info">
-        <h4>Info:</h4>
-        <p>{{ user.gender }}</p>
-        <p>{{ user.location.city }}, {{ user.location.country }}</p>
-        <p>{{ user.email }}</p>
-        <section class="Card__weather d-flex">
-          <h4>Weather:</h4>
-          <p>{{ getWeatherDescription(user.weatherCode) }}</p>
-          <p>Temperature: {{ user.temperature }}°C</p>
+<section class="Saved-users">
+  <h2 class="Saved-users__h2">Saved Users</h2>
+  <ul class="Saved-users__ul d-flex">
+    <li class="Saved-users__ul__card" *ngFor="let user of users">
+      <section class="Card shadow" *ngIf="user">
+        <h2>{{ user.name.first }} {{ user.name.last }}</h2>
+        <img class="Card__image" [src]="user.picture.large" alt="User">
+        <section class="Card__info">
+          <h4>Info:</h4>
+          <p>{{ user.gender }}</p>
+          <p>{{ user.location.city }}, {{ user.location.country }}</p>
+          <p>{{ user.email }}</p>
+          <section class="Card__weather d-flex">
+            <h4>Weather:</h4>
+            <p>{{ getWeatherDescription(user.weatherCode) }}</p>
+            <p>Temperature: {{ user.temperature }}°C</p>
+          </section>
         </section>
+        <button class="Saved-users__ul--delete" (click)="deleteUser(user)">Delete</button>
       </section>
-      <button (click)="deleteUser(user)">Delete</button>
-    </section>
-  </li>
-</ul>
+    </li>
+  </ul>
+</section>
+
 

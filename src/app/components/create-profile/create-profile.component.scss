@@ -11,7 +11,7 @@
   border-radius: 10px;
 
   &:hover {
-    color: red;
+    color: yellow;
   }
 }
 
@@ -39,6 +39,10 @@
 
   &__info {
     margin: 10px 0 10px 0;
+  }
+
+  &:hover {
+    background-color: rgb(220, 220, 220);
   }
 }
 

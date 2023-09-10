@@ -16,25 +16,25 @@ export class CreateProfileComponent {
 
   constructor(
     private http: HttpClient,
-    private userService: UserService,
-    private weatherService: WeatherService // Внедрите сервис
-  ) { }
+     private userService: UserService,
+     private weatherService: WeatherService // Внедрите сервис
+     ) {}
 
-  fetchRandomUser() {
-    this.http.get('https://randomuser.me/api/').subscribe((data: any) => {
-      this.userData = data.results[0];
+     fetchRandomUser() {
+      this.http.get('https://randomuser.me/api/').subscribe((data: any) => {
+        this.userData = data.results[0];
 
-      const latitude = this.userData.location.coordinates.latitude;
-      const longitude = this.userData.location.coordinates.longitude;
+        const latitude = this.userData.location.coordinates.latitude;
+        const longitude = this.userData.location.coordinates.longitude;
 
-      // Запрос к API погоды
-      this.http.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m`)
-        .subscribe((weatherData: any) => {
-          this.weatherData = weatherData;
+        // Запрос к API погоды
+        this.http.get(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m`)
+          .subscribe((weatherData: any) => {
+            this.weatherData = weatherData;
 
-        });
-    });
-  }
+          });
+      });
+    }
 
   getWeatherDescription(weatherCode: number): string {
     return this.weatherService.getWeatherDescription(weatherCode);
